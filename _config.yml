@@ -1,0 +1,10 @@
+title: Ketaki Ghatole
+description: Building AI products for biology
+url: "https://98ketaki.github.io"
+baseurl: "/98ketaki"
+
+# Exclude non-site files from the build
+exclude:
+  - "*.pdf"
+  - "ketaki-homepage-mockup.html"
+  - README.md
