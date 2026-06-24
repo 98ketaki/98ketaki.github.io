@@ -56,6 +56,19 @@
     color: var(--brown-lt);
   }
   .topbar-nav a:hover { color: var(--brown); }
+  .nav-toggle {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 34px; height: 30px; padding: 0;
+    background: none; border: none; cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block; width: 21px; height: 1.5px;
+    background: var(--brown); transition: transform 0.2s, opacity 0.2s;
+  }
+  .nav-toggle.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   /* ── HERO ── */
   .hero {
@@ -522,6 +535,18 @@
     .hero-photo { height: 320px; }
     .body-wrap { grid-template-columns: 1fr; }
     .sidenav { display: none; }
+    .nav-toggle { display: flex; }
+    .sidenav.open {
+      display: flex;
+      position: fixed; top: 57px; left: 0; right: 0;
+      height: auto; max-height: calc(100vh - 57px);
+      overflow-y: auto; z-index: 90;
+      background: var(--parchment);
+      border-right: none; border-bottom: 0.5px solid var(--border);
+      box-shadow: 0 12px 24px rgba(44,36,22,0.08);
+      padding: 14px 28px 22px;
+    }
+    .sidenav.open a { padding: 9px 0; font-size: 12px; }
     .sec { padding: 40px 28px; }
     .cta-sec { padding: 48px 28px; }
   }
@@ -538,6 +563,9 @@
 <!-- TOPBAR -->
 <header class="topbar">
   <div class="topbar-name">Ketaki Ghatole</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <!-- BODY -->
@@ -1030,6 +1058,20 @@
     window.addEventListener('scroll', spy, { passive: true });
     window.addEventListener('resize', spy);
     spy();
+
+    // mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const sidenav = document.querySelector('.sidenav');
+    if (navToggle && sidenav) {
+      const setOpen = (open) => {
+        sidenav.classList.toggle('open', open);
+        navToggle.classList.toggle('is-open', open);
+        navToggle.setAttribute('aria-expanded', open);
+      };
+      navToggle.addEventListener('click', () => setOpen(!sidenav.classList.contains('open')));
+      sidenav.querySelectorAll('a[href^="#"]').forEach(a =>
+        a.addEventListener('click', () => setOpen(false)));
+    }
   });
 </script>
 </body>
