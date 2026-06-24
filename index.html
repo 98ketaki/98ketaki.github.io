@@ -389,27 +389,6 @@
   .writing-sub { font-size: 12px; color: var(--brown-lt); }
   .writing-arrow { font-size: 16px; color: var(--brown-lt); }
 
-  /* ── BOOKS ── */
-  .books-section { display: flex; flex-direction: column; gap: 28px; }
-  .books-group-label {
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--brown-lt); margin-bottom: 14px;
-  }
-  .books-shelf { display: flex; gap: 14px; flex-wrap: wrap; }
-  .book-cover {
-    width: 76px; cursor: pointer;
-    transition: transform 0.15s;
-  }
-  .book-cover:hover { transform: translateY(-3px); }
-  .book-cover img {
-    width: 76px; height: 110px;
-    object-fit: cover; border-radius: 2px;
-    border: 0.5px solid var(--border);
-    box-shadow: 2px 3px 8px rgba(44,36,22,0.12);
-    filter: sepia(8%);
-  }
-
   /* ── LIFE ── */
   .life-grid {
     display: grid;
@@ -580,7 +559,6 @@
     <a href="#projects">Projects</a>
     <a href="#certifications">Certifications</a>
     <a href="#writing">Writing</a>
-    <a href="#books">Books</a>
     <a href="#life">Outside work</a>
     <div class="sidenav-socials">
       <a href="https://github.com/98ketaki">
@@ -616,7 +594,7 @@
           </p>
           <div class="hero-actions">
             <a href="https://www.linkedin.com/in/ketaki-g/" class="btn-dark">Connect on LinkedIn</a>
-            <a href="https://www.ketaki-ghatole.com/blog" class="btn-line">Blog →</a>
+            <a href="https://98ketaki.wixsite.com/ketaki-ghatole/blog" class="btn-line">Blog →</a>
           </div>
         </div>
       </div>
@@ -734,7 +712,7 @@
     <section id="projects" class="sec">
       <div class="sec-head">
         <div class="sec-head-left">
-          <span class="sec-num">05</span>
+          <span class="sec-num">04</span>
           <span class="sec-title">Projects</span>
         </div>
         <a href="https://github.com/98ketaki" class="sec-link">GitHub →</a>
@@ -886,7 +864,7 @@
     <section id="certifications" class="sec">
       <div class="sec-head">
         <div class="sec-head-left">
-          <span class="sec-num">04</span>
+          <span class="sec-num">05</span>
           <span class="sec-title">Certifications</span>
         </div>
       </div>
@@ -913,24 +891,24 @@
           <span class="sec-num">06</span>
           <span class="sec-title">Writing</span>
         </div>
-        <a href="https://www.ketaki-ghatole.com/blog" class="sec-link">Read all →</a>
+        <a href="https://98ketaki.wixsite.com/ketaki-ghatole/blog" class="sec-link">Read all →</a>
       </div>
       <div class="writing-list">
-        <a href="https://www.ketaki-ghatole.com/blog" class="writing-row">
+        <a href="https://98ketaki.wixsite.com/ketaki-ghatole/blog/categories/what-s-new-biology-x-ai" class="writing-row">
           <div>
             <div class="writing-name">Biology × AI</div>
             <div class="writing-sub">Practical workflows and tools lab teams can actually use</div>
           </div>
           <span class="writing-arrow">→</span>
         </a>
-        <a href="https://www.ketaki-ghatole.com/blog" class="writing-row">
+        <a href="https://98ketaki.wixsite.com/ketaki-ghatole/blog/categories/thinking-in-products" class="writing-row">
           <div>
             <div class="writing-name">Thinking in Products</div>
             <div class="writing-sub">Building in technical and scientific markets</div>
           </div>
           <span class="writing-arrow">→</span>
         </a>
-        <a href="https://www.ketaki-ghatole.com/blog" class="writing-row">
+        <a href="https://98ketaki.wixsite.com/ketaki-ghatole/blog/categories/back-to-basics" class="writing-row">
           <div>
             <div class="writing-name">Back to Basics</div>
             <div class="writing-sub">Concepts that are easy to name but hard to explain well</div>
@@ -940,48 +918,11 @@
       </div>
     </section>
 
-    <!-- BOOKS -->
-    <section id="books" class="sec">
-      <div class="sec-head">
-        <div class="sec-head-left">
-          <span class="sec-num">07</span>
-          <span class="sec-title">Books</span>
-        </div>
-      </div>
-      <div class="books-section">
-        <div>
-          <div class="books-group-label">Reading</div>
-          <div class="books-shelf">
-            <div class="book-cover">
-              <img src="photos/startup-owner.png" alt="The Startup Owner's Manual">
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="books-group-label">Completed</div>
-          <div class="books-shelf">
-            <div class="book-cover">
-              <img src="photos/zero.png" alt="Zero to One">
-            </div>
-            <div class="book-cover">
-              <img src="photos/inspired.png" alt="Inspired">
-            </div>
-            <div class="book-cover">
-              <img src="photos/lean.png" alt="The Lean Startup">
-            </div>
-            <div class="book-cover">
-              <img src="photos/startup-checklist.png" alt="The Startup Checklist">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- LIFE -->
     <section id="life" class="sec">
       <div class="sec-head">
         <div class="sec-head-left">
-          <span class="sec-num">08</span>
+          <span class="sec-num">07</span>
           <span class="sec-title">Outside work</span>
         </div>
       </div>
@@ -1040,7 +981,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     filterProjects('ai');
     document.querySelector('.filter-btn').classList.add('active');
-    const sections = ['about','thesis','work','education','projects','certifications','writing','books','life','contact'];
+    const sections = ['about','thesis','work','education','projects','certifications','writing','life','contact'];
     const links = document.querySelectorAll('.sidenav a[href^="#"]');
     const els = sections.map(id => document.getElementById(id)).filter(Boolean);
     const LINE = 150; // px below the top of the viewport
