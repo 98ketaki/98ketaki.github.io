@@ -119,13 +119,12 @@
   .hero-photo {
     position: relative; overflow: hidden;
     background: #B8AFA0;
-    align-self: start;
-    margin-top: 56px;
+    align-self: center;
     height: min(64vh, 500px);
   }
   .hero-photo img {
     width: 100%; height: 100%;
-    object-fit: cover; object-position: center 8%;
+    object-fit: cover; object-position: 42% 28%;
     display: block;
     filter: grayscale(100%) contrast(1.08) brightness(0.95);
   }
@@ -194,11 +193,7 @@
     margin-bottom: 32px; gap: 12px;
   }
   .sec-head-left { display: flex; align-items: baseline; gap: 12px; }
-  .sec-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 11px; font-style: italic;
-    color: var(--brown-lt);
-  }
+  .sec-num { display: none; }
   .sec-title {
     font-family: 'Playfair Display', serif;
     font-size: 22px; font-weight: 600;
@@ -454,6 +449,11 @@
   }
   .life-mini b { display: block; font-size: 13px; font-weight: 500; color: var(--brown); margin-bottom: 2px; }
   .life-mini span { font-size: 11.5px; color: var(--brown-lt); line-height: 1.45; }
+  .life-intro {
+    font-size: 15px; line-height: 1.7;
+    color: var(--brown-mid); max-width: none;
+    margin-bottom: 22px;
+  }
   .life-photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -549,11 +549,11 @@
     <a href="#thesis">Thesis</a>
     <a href="#work">Work</a>
     <a href="#education">Education</a>
-    <a href="#certifications">Certifications</a>
     <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
     <a href="#writing">Writing</a>
     <a href="#books">Books</a>
-    <a href="#life">Life</a>
+    <a href="#life">Outside work</a>
     <div class="sidenav-socials">
       <a href="https://github.com/98ketaki">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
@@ -578,7 +578,7 @@
         </div>
         <div class="hero-bottom">
           <p class="hero-desc">
-            I have a background in Computational Biology from Carnegie Mellon and experience across the Biotech industry and research labs. My work spans Bioinformatics, AI, and Product Development. I’ve built tools that help scientific teams streamline and automate complex workflows. I also write about advances in AI for biotech, with a focus on practical applications for scientific teams.
+            I have a background in computational biology from Carnegie Mellon and experience across the biotech industry and research labs. My work spans bioinformatics, AI, and product development. I’ve built tools that help scientific teams streamline and automate complex workflows. I also write about advances in AI for biotech, with a focus on practical applications for scientific teams.
           </p>
           <p class="hero-desc">
             Right now, I’m building a platform to help biotech teams preserve context and reasoning across fragmented information, and make better decisions using the knowledge they already have
@@ -610,8 +610,8 @@
       </div>
       <div class="thesis-list">
         <div class="thesis-item">Data is the asset, but the memory of what it meant is the advantage</div>
-        <div class="thesis-item">Recording data and standardization is growing, yet fragmented, leaving recall behind</div>
-        <div class="thesis-item">What if a platform knew the company better than anyone in it?</div>
+        <div class="thesis-item">Biotech teams are recording and standardizing more data than ever, yet it is still fragmented and hard to recall</div>
+        <div class="thesis-item">What if a platform knew the company better than any one person in it?</div>
       </div>
     </section>
 
@@ -630,7 +630,7 @@
           <div>
             <div class="work-role">Bioinformatics Product Manager</div>
             <div class="work-org">Creyon Bio</div>
-            <div class="work-desc">Launched an AI-driven target discovery tool that cut scientific evaluation by ~3h per target; delivered end-to-end assay data workflows that reduced analysis time 50%+; drove company-wide responsible GenAI adoption.</div>
+            <div class="work-desc">Launched an AI-driven target discovery tool that cut scientific evaluation by ~3h per target. Delivered end-to-end assay data workflows that reduced analysis time 50%+. Drove company-wide responsible GenAI adoption.</div>
           </div>
         </div>
         <div class="work-row">
@@ -639,7 +639,7 @@
           <div>
             <div class="work-role">Bioinformatics Data Analyst</div>
             <div class="work-org">Creyon Bio</div>
-            <div class="work-desc">Improved a LightGBM treatment-tolerability model (PR-AUC +4%) and deployed high-throughput NGS pipelines via Snakemake; built real-time dashboards that accelerated experimental feedback and analysis turnaround.</div>
+            <div class="work-desc">Improved a LightGBM treatment-tolerability model (PR-AUC +4%). Deployed high-throughput NGS pipelines via Snakemake. Built real-time dashboards that accelerated experimental feedback and analysis turnaround.</div>
           </div>
         </div>
         <div class="work-row">
@@ -648,7 +648,7 @@
           <div>
             <div class="work-role">Computational Biologist</div>
             <div class="work-org">Jefferson Health</div>
-            <div class="work-desc">Differential gene expression (edgeR) and GSEA to uncover biological pathways; Python visualizations communicating findings clearly to wet-lab collaborators.</div>
+            <div class="work-desc">Analyzed differential gene expression to uncover biological pathways. Created Python visualizations to communicate findings clearly to wet-lab collaborators.</div>
           </div>
         </div>
         <div class="work-row">
@@ -657,7 +657,7 @@
           <div>
             <div class="work-role">Computational Science Intern</div>
             <div class="work-org">Moderna</div>
-            <div class="work-desc">eCLIP data ingestion system with automated preprocessing, peak calling, motif extraction, and a user-facing front end for biologists to explore results without writing code.</div>
+            <div class="work-desc">eCLIP data ingestion system with automated preprocessing, peak calling, motif extraction.</div>
           </div>
         </div>
         <div class="work-row">
@@ -666,7 +666,7 @@
           <div>
             <div class="work-role">Junior Analyst</div>
             <div class="work-org">Axiom Healthcare Strategies</div>
-            <div class="work-desc">Competitive intelligence in oncology: clinical trial analysis, conference proceedings, and strategic forecasting.</div>
+            <div class="work-desc">Competitive intelligence in oncology, clinical trial analysis, conference proceedings, and strategic forecasting.</div>
           </div>
         </div>
       </div>
@@ -698,30 +698,6 @@
             <div class="work-org">M.S. Ramaiah Institute of Technology, Bengaluru, India</div>
             <div class="work-desc">Co-founder, Numera Math &amp; Logic Club</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="sec">
-      <div class="sec-head">
-        <div class="sec-head-left">
-          <span class="sec-num">04</span>
-          <span class="sec-title">Certifications</span>
-        </div>
-      </div>
-      <div class="now-grid">
-        <div class="now-card">
-          <div class="now-card-label">365 Data Science</div>
-          <div class="now-card-val">AI Product Manager</div>
-        </div>
-        <div class="now-card">
-          <div class="now-card-label">Scrum.org</div>
-          <div class="now-card-val">Professional Scrum Master I</div>
-        </div>
-        <div class="now-card">
-          <div class="now-card-label">UC San Diego</div>
-          <div class="now-card-val">Drug Commercialization</div>
         </div>
       </div>
     </section>
@@ -878,6 +854,30 @@
       </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">04</span>
+          <span class="sec-title">Certifications</span>
+        </div>
+      </div>
+      <div class="now-grid">
+        <div class="now-card">
+          <div class="now-card-label">365 Data Science</div>
+          <div class="now-card-val">AI Product Manager</div>
+        </div>
+        <div class="now-card">
+          <div class="now-card-label">Scrum.org</div>
+          <div class="now-card-val">Professional Scrum Master I</div>
+        </div>
+        <div class="now-card">
+          <div class="now-card-label">UC San Diego</div>
+          <div class="now-card-val">Drug Commercialization</div>
+        </div>
+      </div>
+    </section>
+
     <!-- WRITING -->
     <section id="writing" class="sec">
       <div class="sec-head">
@@ -954,33 +954,29 @@
       <div class="sec-head">
         <div class="sec-head-left">
           <span class="sec-num">08</span>
-          <span class="sec-title">Life</span>
+          <span class="sec-title">Outside work</span>
         </div>
       </div>
-      <div class="life-mini-grid">
-        <div class="life-mini"><b>Coffee</b><span> Andytown beans and latte art.</span></div>
-        <div class="life-mini"><b>Running</b><span>Training towards 10K.</span></div>
-        <div class="life-mini"><b>Pull up</b><span>Working towards the first one.</span></div>
-        <div class="life-mini"><b>Graphic design</b><span>On the side</span></div>
-      </div>
+      <p class="life-intro">Currently learning latte art, training for a 10K, working toward my first pull-up, and designing things in Canva for fun.</p>
       <div class="life-photo-grid">
         <div class="life-card">
-          <div class="life-card-ph"><img src="photos/latte-art.jpg" alt="Coffee" style="object-position:center 28%"></div>
+          <div class="life-card-ph"><img src="photos/latte-art.jpg" alt="First rosetta" style="object-position:center 28%"></div>
           <div class="life-card-body">
-            <div class="life-card-title">First rosetta latte art</div>
+            <div class="life-card-title">First rosetta</div>
           </div>
         </div>
         <div class="life-card">
-          <div class="life-card-ph"><img src="photos/hiking.JPG" alt="Hiking @ Zion"></div>
+          <div class="life-card-ph"><img src="photos/hiking.JPG" alt="Hiking in Zion"></div>
           <div class="life-card-body">
-            <div class="life-card-title">Hiking at Zion</div>
+            <div class="life-card-title">Hiking in Zion</div>
           </div>
         </div>
         <div class="life-card">
-          <div class="life-card-ph"><img src="photos/yoga.png" alt="Yoga"></div>
+          <div class="life-card-ph"><img src="photos/yoga.png" alt="Sunset yoga in San Diego"></div>
           <div class="life-card-body">
-            <div class="life-card-title">Yoga at San Diego beach</div>
+            <div class="life-card-title">Sunset yoga in San Diego</div>
           </div>
+        </div>
       </div>
     </section>
 
@@ -1016,7 +1012,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     filterProjects('ai');
     document.querySelector('.filter-btn').classList.add('active');
-    const sections = ['about','thesis','work','education','certifications','projects','writing','books','life','contact'];
+    const sections = ['about','thesis','work','education','projects','certifications','writing','books','life','contact'];
     const links = document.querySelectorAll('.sidenav a[href^="#"]');
     const els = sections.map(id => document.getElementById(id)).filter(Boolean);
     const LINE = 150; // px below the top of the viewport
