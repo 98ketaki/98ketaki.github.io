@@ -414,7 +414,7 @@
   .life-card-plain { padding: 18px 16px; }
   .life-card-plain .life-card-title { font-size: 14px; }
   .life-card-ph {
-    height: 200px;
+    height: 160px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
     background: repeating-linear-gradient(45deg, var(--parchment-dark), var(--parchment-dark) 11px, var(--parchment-darker) 11px, var(--parchment-darker) 22px);
@@ -557,7 +557,6 @@
     <a href="#work">Work</a>
     <a href="#education">Education</a>
     <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
     <a href="#writing">Writing</a>
     <a href="#life">Outside work</a>
     <div class="sidenav-socials">
@@ -615,10 +614,10 @@
         Building a reasoning layer for <em>biotech</em> data
       </div>
       <div class="thesis-list">
-        <div class="thesis-item">Data is the asset, but the memory of what it meant is the advantage</div>
-        <div class="thesis-item">Biotech teams are recording and standardizing more data than ever, yet it is still fragmented and hard to recall</div>
-        <div class="thesis-item">What if a platform knew the company better than any one person in it?</div>
-      </div>
+        <div class="thesis-item">Biotech teams lose the why behind their decisions, data gets recorded but the reasoning doesn't.
+        <div class="thesis-item">When a project pivots, or a meeting ends without good notes, that context disappears and the next person starts from scratch. 
+        <div class="thesis-item"></div>A knowledge layer can capture institutional reasoning and bring it back up when teams need it, so people can make better decisions using context they already have.</div>
+        <div class="thesis-item"></div>I'm currently prototyping and talking to teams across biotech to understand this problem better. </div>
     </section>
 
     <!-- WORK -->
@@ -860,30 +859,6 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="sec">
-      <div class="sec-head">
-        <div class="sec-head-left">
-          <span class="sec-num">05</span>
-          <span class="sec-title">Certifications</span>
-        </div>
-      </div>
-      <div class="now-grid">
-        <div class="now-card">
-          <div class="now-card-label">365 Data Science</div>
-          <div class="now-card-val">AI Product Manager</div>
-        </div>
-        <div class="now-card">
-          <div class="now-card-label">Scrum.org</div>
-          <div class="now-card-val">Professional Scrum Master I</div>
-        </div>
-        <div class="now-card">
-          <div class="now-card-label">UC San Diego</div>
-          <div class="now-card-val">Drug Commercialization</div>
-        </div>
-      </div>
-    </section>
-
     <!-- WRITING -->
     <section id="writing" class="sec">
       <div class="sec-head">
@@ -955,7 +930,8 @@
       <h2 class="cta-h2">If you're building something or<br>working in <em>Biotech or AI</em></h2>
       <p class="cta-desc">I'd love to connect.</p>
       <div class="cta-actions">
-        <a href="https://www.linkedin.com/in/ketaki-g/" class="btn-parchment">Connect on LinkedIn →</a>
+        <a href="mailto:98ketaki@gmail.com?subject=Hello%20Ketaki" class="btn-parchment">Email me →</a>
+        <a href="https://www.linkedin.com/in/ketaki-g/" class="btn-ghost-lt">Connect on LinkedIn</a>
       </div>
     </section>
 
@@ -981,7 +957,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     filterProjects('ai');
     document.querySelector('.filter-btn').classList.add('active');
-    const sections = ['about','thesis','work','education','projects','certifications','writing','life','contact'];
+    const sections = ['about','thesis','work','education','projects','writing','life','contact'];
     const links = document.querySelectorAll('.sidenav a[href^="#"]');
     const els = sections.map(id => document.getElementById(id)).filter(Boolean);
     const LINE = 150; // px below the top of the viewport
