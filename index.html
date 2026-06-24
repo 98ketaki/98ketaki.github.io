@@ -3,385 +3,1038 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ketaki Ghatole — Building at the intersection of AI &amp; biology</title>
+<title>Ketaki Ghatole</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1A4A50;
-    --ink-soft:#4A7B82;
-    --bg:#EBF4F8;
-    --card:#F7FCFE;
-    --coral:#7ECECE;
-    --coral-deep:#1E8080;
-    --sky:#B8DDEF;
-    --mint:#A8DDD5;
-    --butter:#C9EBF0;
-    --line:#C0DCE8;
-    --radius:18px;
-    --maxw:1080px;
+  :root {
+    --parchment: #F5F0E8;
+    --parchment-dark: #EDE8DC;
+    --parchment-darker: #E2DBCF;
+    --brown: #2C2416;
+    --brown-mid: #6B5C45;
+    --brown-lt: #8C7B62;
+    --sage: #5C7A5A;
+    --sage-lt: #DDE8DB;
+    --border: rgba(44,36,22,0.13);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;line-height:1.14;letter-spacing:-0.02em}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-  section{padding:78px 0}
-  .eyebrow{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:18px;display:block}
 
-  /* NAV */
-  nav{position:sticky;top:0;z-index:50;background:rgba(253,251,247,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px}
-  .nav-links{display:flex;gap:24px;align-items:center}
-  .nav-links a{font-size:14px;font-weight:500;color:var(--ink-soft)}
-  .nav-links a:hover{color:var(--ink)}
-  .btn{display:inline-block;background:var(--coral);color:var(--ink);font-weight:600;font-size:14px;padding:10px 20px;border-radius:999px;transition:transform .15s ease,background .15s ease}
-  .btn:hover{background:var(--coral-deep);color:#fff;transform:translateY(-1px)}
-  .btn-ghost{background:transparent;border:1.5px solid var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
-  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-  /* HERO / ABOUT */
-  .hero{padding:86px 0 140px;background:radial-gradient(ellipse 90% 70% at 0% 0%,rgba(168,221,213,.4),transparent 55%),radial-gradient(ellipse 70% 60% at 100% 100%,rgba(184,221,239,.5),transparent 55%),radial-gradient(ellipse 60% 50% at 50% 60%,rgba(201,235,240,.3),transparent 60%),var(--bg)}
-  .hero-grid{display:grid;grid-template-columns:260px 1fr;gap:72px;align-items:center}
-  .hero h1{font-size:clamp(36px,5.2vw,58px);font-weight:700;margin-bottom:12px}
-  .hero h1 .hl{color:var(--coral-deep)}
-  .hero p.lead{font-size:17px;color:var(--ink-soft);max-width:560px;margin-bottom:22px}
-  .hero p.thesis{font-size:17px;max-width:560px;margin-bottom:30px}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .socials{display:flex;gap:14px}
-  .socials a{width:40px;height:40px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--ink-soft);transition:.15s}
-  .socials a:hover{border-color:var(--coral);color:var(--coral-deep);transform:translateY(-1px)}
-  .portrait-col{display:flex;flex-direction:column;align-items:center;gap:32px;padding-top:48px}
-  .portrait{width:240px;height:320px;border-radius:80%;overflow:hidden;flex-shrink:10}
-  .portrait img{width:100%;height:110%;object-fit:cover;object-position:95% 10%;display:block}
-  @media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:34px}.portrait{width:140px;height:210px}}
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--parchment);
+    color: var(--brown);
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.7;
+  }
 
-  /* SECTION HEADS */
-  .section-intro{margin-bottom:32px;max-width:680px}
-  .section-intro h2{font-size:30px;margin-bottom:14px}
-  .section-intro p{color:var(--ink-soft);font-size:16px}
+  a { color: inherit; text-decoration: none; }
+  img { display: block; }
 
-  /* EDUCATION */
-  #education{background:linear-gradient(135deg,rgba(168,221,213,.25) 0%,rgba(184,221,239,.2) 100%)}
-  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .edu-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;border-top:4px solid var(--coral)}
-  .edu-card h3{font-size:19px;margin-bottom:4px}
-  .edu-card .school{color:var(--coral-deep);font-weight:600;font-size:14px;margin-bottom:14px}
-  .honor{display:inline-block;background:var(--butter);font-size:12px;color:#6b5a1f;font-weight:500;padding:4px 11px;border-radius:999px;margin:0 6px 6px 0}
-  @media(max-width:680px){.edu-grid{grid-template-columns:1fr}}
+  /* ── TOPBAR ── */
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 36px;
+    border-bottom: 0.5px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,240,232,0.95);
+    backdrop-filter: blur(12px);
+  }
+  .topbar-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .topbar-nav {
+    display: flex; gap: 22px;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--brown-lt);
+  }
+  .topbar-nav a:hover { color: var(--brown); }
 
-  /* EXPERIENCE */
-  #experience{background:linear-gradient(180deg,rgba(169,199,232,.15) 0%,transparent 100%)}
-  .timeline{display:flex;flex-direction:column;gap:4px;margin-top:28px}
-  .exp{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:22px 0;border-bottom:1px solid var(--line)}
-  .exp:last-child{border-bottom:none}
-  .exp .when{font-size:13px;color:var(--ink-soft);font-weight:500;padding-top:3px}
-  .exp .role{font-size:17px;font-family:'Space Grotesk',sans-serif;font-weight:600}
-  .exp .org{font-size:14px;color:var(--coral-deep);font-weight:600;margin:2px 0 8px}
-  .exp p{font-size:14.5px;color:var(--ink-soft)}
-  .fill{color:#B9923E;font-style:italic}
-  @media(max-width:600px){.exp{grid-template-columns:1fr;gap:6px}}
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    align-items: start;
+    min-height: 78vh;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .hero-left {
+    padding: 56px 48px 56px 36px;
+    display: flex; flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--brown-lt); margin-bottom: 24px;
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 600; line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--brown);
+  }
+  .hero-h1 .italic { font-style: italic; color: var(--sage); }
+  .hero-tag {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.1vw, 26px);
+    line-height: 1.3; color: var(--sage);
+    margin-top: 22px;
+  }
+  .hero-bottom { display: flex; flex-direction: column; gap: 18px; }
+  .hero-desc {
+    font-size: 15px; line-height: 1.8;
+    color: var(--brown-mid); max-width: 520px;
+  }
+  .hero-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-dark {
+    background: var(--brown); color: var(--parchment);
+    font-size: 12px; font-weight: 500;
+    padding: 10px 22px; border-radius: 2px;
+    letter-spacing: 0.04em; border: none; cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn-dark:hover { opacity: 0.82; }
+  .btn-line {
+    background: transparent; color: var(--brown);
+    font-size: 12px; font-weight: 500;
+    padding: 9px 20px; border-radius: 2px;
+    border: 0.5px solid rgba(44,36,22,0.35);
+    cursor: pointer; letter-spacing: 0.04em;
+    transition: all 0.15s;
+  }
+  .btn-line:hover { border-color: var(--brown); }
 
-  /* PROJECTS */
-  .work-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap;gap:14px}
-  .work-head h2{font-size:30px}
-  .filter-bar{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap}
-  .filter-btn{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;padding:8px 18px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink-soft);cursor:pointer;transition:.15s}
-  .filter-btn:hover{border-color:var(--coral);color:var(--coral-deep)}
-  .filter-btn.active{background:var(--coral);border-color:var(--coral);color:var(--ink)}
-  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .proj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s,box-shadow .15s,border-color .15s}
-  .proj:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(38,35,58,.07);border-color:var(--coral)}
-  .proj.hidden{display:none}
-  .proj .chip{font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:4px 11px;border-radius:999px;color:var(--ink-soft);background:#F0EBE2;display:inline-block;margin-bottom:12px}
-  .proj h3{font-size:18px;margin-bottom:10px}
-  .proj .row{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:14px}
-  .proj .link{font-weight:600;font-size:14px;color:var(--coral-deep)}
-  .proj .link:hover{text-decoration:underline}
-  @media(max-width:600px){.proj-grid{grid-template-columns:1fr}}
+  /* hero photo */
+  .hero-photo {
+    position: relative; overflow: hidden;
+    background: #B8AFA0;
+    align-self: start;
+    margin-top: 56px;
+    height: min(64vh, 500px);
+  }
+  .hero-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 8%;
+    display: block;
+    filter: grayscale(100%) contrast(1.08) brightness(0.95);
+  }
+  .hero-photo-label {
+    position: absolute; bottom: 18px; left: 18px;
+    font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.55);
+  }
 
-  /* WRITING */
-  #writing{background:linear-gradient(135deg,rgba(184,221,239,.2) 0%,rgba(168,221,213,.2) 100%)}
-  .write-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.15s}
-  .pillar:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(38,35,58,.06)}
-  .pillar .dot{width:26px;height:26px;border-radius:8px;margin-bottom:14px}
-  .pillar h3{font-size:18px;margin-bottom:10px}
-  .pillar p{font-size:14px;color:var(--ink-soft);line-height:1.6}
-  .write-foot{margin-top:24px}
-  @media(max-width:720px){.write-grid{grid-template-columns:1fr}}
+  /* ── BODY LAYOUT ── */
+  .body-wrap {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    min-height: calc(100vh - 60px);
+  }
 
-  /* CERTIFICATIONS */
-  #certifications{background:linear-gradient(135deg,rgba(169,199,232,.18) 0%,rgba(242,163,140,.12) 100%)}
-  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .cert{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:12px;padding:22px}
-  .cert b{font-size:15px;display:block;margin-bottom:3px}
-  .cert span{font-size:13.5px;color:var(--ink-soft)}
-  @media(max-width:680px){.cert-grid{grid-template-columns:1fr}}
+  /* ── SIDENAV ── */
+  .sidenav {
+    border-right: 0.5px solid var(--border);
+    padding: 36px 24px;
+    position: sticky; top: 57px;
+    height: calc(100vh - 57px);
+    overflow-y: auto;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .sidenav a {
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--brown-lt); padding: 7px 0;
+    border-bottom: 0.5px solid transparent;
+    transition: color 0.15s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sidenav a:hover, .sidenav a.active { color: var(--brown); }
+  .sidenav a.active::before {
+    content: '';
+    display: inline-block; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--sage);
+    flex-shrink: 0;
+  }
+  .sidenav-socials {
+    margin-top: auto; padding-top: 24px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .sidenav-socials a {
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--brown-lt);
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 0; border-bottom: none;
+  }
+  .sidenav-socials a:hover { color: var(--brown); }
 
-  /* CONTACT */
-  .contact{text-align:center;padding-top:120px;padding-bottom:40px}
-  .contact h2{font-size:clamp(28px,4.5vw,44px);margin-bottom:18px}
-  .contact .open{display:inline-block;background:var(--mint);color:var(--ink);font-size:14px;font-weight:500;padding:8px 18px;border-radius:999px;margin-bottom:26px}
-  .contact p{color:var(--ink-soft);max-width:520px;margin:0 auto 30px;font-size:17px}
-  .contact .hero-cta{justify-content:center}
-  .contact .socials{justify-content:center}
+  /* ── CONTENT ── */
+  .content { flex: 1; }
 
-  footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--ink-soft);font-size:13px}
+  .sec {
+    padding: 64px 52px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .sec:last-child { border-bottom: none; }
+
+  .sec-head {
+    display: flex; align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 32px; gap: 12px;
+  }
+  .sec-head-left { display: flex; align-items: baseline; gap: 12px; }
+  .sec-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px; font-style: italic;
+    color: var(--brown-lt);
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -0.02em; color: var(--brown);
+  }
+  .sec-link {
+    font-size: 11px; color: var(--sage);
+    letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.15s;
+  }
+  .sec-link:hover { gap: 8px; }
+
+  /* ── NOW ── */
+  .now-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .now-card {
+    background: var(--parchment-dark);
+    border-radius: 4px; padding: 16px 18px;
+  }
+  .now-card-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--brown-lt); margin-bottom: 6px;
+  }
+  .now-card-val {
+    font-size: 14px; color: var(--brown); line-height: 1.55;
+  }
+  .now-card-val em { font-style: italic; }
+  .logo-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: var(--parchment); border: 0.5px solid var(--border);
+    border-radius: 3px; padding: 1px 7px 1px 4px;
+    font-size: 12px; font-weight: 500; vertical-align: middle;
+  }
+  .logo-chip img {
+    width: 13px; height: 13px;
+    object-fit: contain; border-radius: 2px;
+  }
+
+  /* ── THESIS ── */
+  .thesis-opener {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-style: italic; font-weight: 400;
+    line-height: 1.55; color: var(--brown);
+    border-left: 2px solid var(--sage);
+    padding-left: 20px; border-radius: 0;
+    margin-bottom: 24px; max-width: 520px;
+  }
+  .thesis-list {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .thesis-item {
+    font-size: 14px; color: var(--brown-mid);
+    line-height: 1.7;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .thesis-item::before {
+    content: '·';
+    color: var(--sage); font-size: 20px;
+    line-height: 1.2; flex-shrink: 0; margin-top: -1px;
+  }
+
+  /* ── WORK ── */
+  .work-list { display: flex; flex-direction: column; }
+  .work-row {
+    display: grid;
+    grid-template-columns: 88px 48px 1fr;
+    gap: 0 16px;
+    padding: 20px 0;
+    border-bottom: 0.5px solid var(--border);
+    align-items: start;
+  }
+  .work-row:last-child { border-bottom: none; }
+  .work-date {
+    font-size: 11px; color: var(--brown-lt);
+    letter-spacing: 0.02em; padding-top: 2px;
+    line-height: 1.5;
+  }
+  .work-logo {
+    width: 44px; height: 44px;
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .work-logo img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    padding: 7px;
+  }
+  .work-role {
+    font-size: 14px; font-weight: 500;
+    color: var(--brown); margin-bottom: 2px;
+  }
+  .work-org { font-size: 12px; color: var(--sage); margin-bottom: 6px; }
+  .work-desc { font-size: 13px; color: var(--brown-lt); line-height: 1.7; }
+
+  /* ── PROJECTS ── */
+  .filter-bar {
+    display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 2px;
+    border: 0.5px solid var(--border);
+    background: transparent; color: var(--brown-lt);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .filter-btn:hover { border-color: var(--brown); color: var(--brown); }
+  .filter-btn.active {
+    background: var(--brown); border-color: var(--brown); color: var(--parchment);
+  }
+  .proj-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  }
+  .proj-card {
+    background: var(--parchment-dark);
+    border: 0.5px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .proj-card:hover {
+    box-shadow: 0 6px 24px rgba(44,36,22,0.09);
+    transform: translateY(-2px);
+  }
+  .proj-card.hidden { display: none; }
+  .proj-banner {
+    height: 118px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .proj-body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; }
+  .proj-chip {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--sage); background: var(--sage-lt);
+    padding: 3px 8px; border-radius: 2px;
+    display: inline-block; margin-bottom: 10px; align-self: flex-start;
+  }
+  .proj-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 600;
+    color: var(--brown); margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .proj-card p {
+    font-size: 13px; color: var(--brown-lt);
+    line-height: 1.7; flex: 1; margin-bottom: 14px;
+  }
+  .proj-link {
+    font-size: 12px; font-weight: 500;
+    color: var(--sage); letter-spacing: 0.03em;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.15s;
+  }
+  .proj-link:hover { gap: 8px; }
+
+  /* ── WRITING ── */
+  .writing-list { display: flex; flex-direction: column; }
+  .writing-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0; border-bottom: 0.5px solid var(--border);
+    transition: padding-left 0.15s;
+  }
+  .writing-row:last-child { border-bottom: none; }
+  .writing-row:hover { padding-left: 6px; }
+  .writing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-style: italic;
+    color: var(--brown); margin-bottom: 3px;
+  }
+  .writing-sub { font-size: 12px; color: var(--brown-lt); }
+  .writing-arrow { font-size: 16px; color: var(--brown-lt); }
+
+  /* ── BOOKS ── */
+  .books-section { display: flex; flex-direction: column; gap: 28px; }
+  .books-group-label {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--brown-lt); margin-bottom: 14px;
+  }
+  .books-shelf { display: flex; gap: 14px; flex-wrap: wrap; }
+  .book-cover {
+    width: 76px; cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .book-cover:hover { transform: translateY(-3px); }
+  .book-cover img {
+    width: 76px; height: 110px;
+    object-fit: cover; border-radius: 2px;
+    border: 0.5px solid var(--border);
+    box-shadow: 2px 3px 8px rgba(44,36,22,0.12);
+    filter: sepia(8%);
+  }
+
+  /* ── LIFE ── */
+  .life-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .life-card {
+    background: var(--parchment-dark);
+    border-radius: 4px; overflow: hidden;
+    border: 0.5px solid var(--border);
+  }
+  .life-card-img {
+    width: 100%; height: 140px;
+    object-fit: cover;
+    filter: sepia(10%) contrast(1.02);
+  }
+  .life-card-body { padding: 12px 14px; }
+  .life-card-title {
+    font-size: 13px; font-weight: 500;
+    color: var(--brown); margin-bottom: 3px;
+  }
+  .life-card-sub { font-size: 12px; color: var(--brown-lt); line-height: 1.5; }
+  .life-card-plain { padding: 18px 16px; }
+  .life-card-plain .life-card-title { font-size: 14px; }
+  .life-card-ph {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: repeating-linear-gradient(45deg, var(--parchment-dark), var(--parchment-dark) 11px, var(--parchment-darker) 11px, var(--parchment-darker) 22px);
+    color: var(--brown-lt);
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .life-card-ph img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: sepia(10%) contrast(1.02);
+  }
+  /* small text-only interest boxes */
+  .life-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .life-mini {
+    background: var(--parchment-dark);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 11px 13px;
+  }
+  .life-mini b { display: block; font-size: 13px; font-weight: 500; color: var(--brown); margin-bottom: 2px; }
+  .life-mini span { font-size: 11.5px; color: var(--brown-lt); line-height: 1.45; }
+  .life-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+  }
+
+  /* ── CTA ── */
+  .cta-sec {
+    background: var(--brown);
+    padding: 56px 52px;
+    border-bottom: none;
+  }
+  .cta-eyebrow {
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(245,240,232,0.4); margin-bottom: 14px;
+  }
+  .cta-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.2vw, 38px);
+    font-weight: 600; letter-spacing: -0.02em;
+    color: var(--parchment); line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .cta-h2 em { font-style: italic; color: rgba(245,240,232,0.45); }
+  .cta-desc {
+    font-size: 14px; color: rgba(245,240,232,0.55);
+    line-height: 1.8; max-width: 440px; margin-bottom: 28px;
+  }
+  .cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-parchment {
+    background: var(--parchment); color: var(--brown);
+    font-size: 12px; font-weight: 600;
+    padding: 11px 24px; border-radius: 2px;
+    border: none; cursor: pointer; letter-spacing: 0.04em;
+    transition: opacity 0.15s;
+  }
+  .btn-parchment:hover { opacity: 0.88; }
+  .btn-ghost-lt {
+    background: transparent;
+    border: 0.5px solid rgba(245,240,232,0.25);
+    color: rgba(245,240,232,0.65);
+    font-size: 12px; font-weight: 500;
+    padding: 10px 22px; border-radius: 2px;
+    cursor: pointer; letter-spacing: 0.04em;
+    transition: all 0.15s;
+  }
+  .btn-ghost-lt:hover { border-color: rgba(245,240,232,0.6); color: var(--parchment); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brown);
+    border-top: 0.5px solid rgba(245,240,232,0.08);
+    padding: 18px 36px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: rgba(245,240,232,0.28);
+    letter-spacing: 0.04em;
+  }
+  .footer-links { display: flex; gap: 18px; }
+  .footer-links a { color: rgba(245,240,232,0.4); transition: color 0.15s; }
+  .footer-links a:hover { color: rgba(245,240,232,0.75); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-photo { height: 320px; }
+    .body-wrap { grid-template-columns: 1fr; }
+    .sidenav { display: none; }
+    .sec { padding: 40px 28px; }
+    .cta-sec { padding: 48px 28px; }
+  }
+  @media(max-width: 580px) {
+    .now-grid, .proj-grid, .life-grid { grid-template-columns: 1fr; }
+    .work-row { grid-template-columns: 72px 1fr; }
+    .work-logo { display: none; }
+    .topbar-nav { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="wrap nav-inner">
-    <a href="#top" class="brand">Ketaki Ghatole</a>
-    <div class="nav-links">
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#writing">Writing</a>
-      <a href="https://www.ketaki-ghatole.com/blog" class="btn" target="_blank">Blog</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO / ABOUT -->
-<header id="top" class="hero">
-  <div class="wrap hero-grid">
-    <div class="portrait-col">
-      <div class="portrait">
-        <img src="ketaki-profile-photo.png" alt="Ketaki Ghatole">
-      </div>
-      <div class="socials">
-        <a href="mailto:98ketaki@gmail.com" title="Email">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/ketaki-g/" title="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://github.com/98ketaki" title="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        </a>
-      </div>
-    </div>
-    <div>
-      <h1 style="color:var(--coral-deep)">Ketaki Ghatole</h1>
-      <p class="lead" style="font-weight:600;color:var(--ink);margin-bottom:22px">Building at the intersection of AI &amp; Biology</p>
-      <p style="font-size:16px;color:var(--ink-soft);max-width:560px;margin-bottom:16px">I'm a Computational Biologist by training from Carnegie Mellon, with experience in the biotech industry and academic research labs. My work spans bioinformatics, machine learning, and product development, where I’ve built computational tools that support scientific teams in real workflows. I also write about advances in AI for biotech, with a focus on practical applications scientific teams can evaluate, adapt, and apply to their own work.</p>
-      <p style="font-size:16px;color:var(--ink-soft);max-width:560px;margin-bottom:32px">Right now I'm exploring how biotech teams can preserve context, reason across fragmented information, and make better decisions from the knowledge they already have. If you're building in this space or just want to chat, feel free to reach out!</p>
-      <a href="#education" class="btn btn-ghost" style="display:inline-flex;align-items:center;gap:8px">To know more ↓</a>
-    </div>
-  </div>
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-name">Ketaki Ghatole</div>
 </header>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="wrap">
-    <span class="eyebrow">Education</span>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <h3>M.S. Computational Biology</h3>
-        <div class="school">Carnegie Mellon University</div>
-        <span class="honor">Swartz Fellow · 2021</span>
-      </div>
-      <div class="edu-card">
-        <h3>B.E. Biotechnology</h3>
-        <div class="school">M.S. Ramaiah Institute of Technology</div>
-        <span class="honor">Co-founder · Numera Math &amp; Logic Club</span>
-        <span class="honor">Best Project Award2020</span>
-      </div>
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- SIDENAV -->
+  <nav class="sidenav">
+    <a href="#about" class="active">About</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#work">Work</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#projects">Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="#books">Books</a>
+    <a href="#life">Life</a>
+    <div class="sidenav-socials">
+      <a href="https://github.com/98ketaki">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/ketaki-g/">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
     </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <section id="about" class="hero">
+      <div class="hero-left">
+        <div>
+          <h1 class="hero-h1">Ketaki<br>Gha<span class="italic">tole</span></h1>
+          <p class="hero-tag">Building at the intersection of AI &amp; Biology</p>
+        </div>
+        <div class="hero-bottom">
+          <p class="hero-desc">
+            I have a background in Computational Biology from Carnegie Mellon and experience across the Biotech industry and research labs. My work spans Bioinformatics, AI, and Product Development. I’ve built tools that help scientific teams streamline and automate complex workflows. I also write about advances in AI for biotech, with a focus on practical applications for scientific teams.
+          </p>
+          <p class="hero-desc">
+            Right now, I’m building a platform to help biotech teams preserve context and reasoning across fragmented information, and make better decisions using the knowledge they already have
+          </p>
+          <p class="hero-desc">
+            If you’re building in this space or just want to chat, feel free to reach out!
+          </p>
+          <div class="hero-actions">
+            <a href="https://www.linkedin.com/in/ketaki-g/" class="btn-dark">Connect on LinkedIn</a>
+            <a href="https://www.ketaki-ghatole.com/blog" class="btn-line">Blog →</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="photos/ketaki-profile-photo.png" alt="Ketaki Ghatole">
+      </div>
+    </section>
+
+    <!-- THESIS -->
+    <section id="thesis" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">01</span>
+          <span class="sec-title">Thesis</span>
+        </div>
+      </div>
+      <div class="thesis-opener">
+        Building a reasoning layer for <em>biotech</em> data
+      </div>
+      <div class="thesis-list">
+        <div class="thesis-item">Data is the asset, but the memory of what it meant is the advantage</div>
+        <div class="thesis-item">Recording data and standardization is growing, yet fragmented, leaving recall behind</div>
+        <div class="thesis-item">What if a platform knew the company better than anyone in it?</div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">02</span>
+          <span class="sec-title">Work</span>
+        </div>
+      </div>
+      <div class="work-list">
+        <div class="work-row">
+          <div class="work-date">2024–2025</div>
+          <div class="work-logo"><img src="photos/Creyon%20bio%20logo.png" alt="Creyon Bio" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">Bioinformatics Product Manager</div>
+            <div class="work-org">Creyon Bio</div>
+            <div class="work-desc">Launched an AI-driven target discovery tool that cut scientific evaluation by ~3h per target; delivered end-to-end assay data workflows that reduced analysis time 50%+; drove company-wide responsible GenAI adoption.</div>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="work-date">2023–2024</div>
+          <div class="work-logo"><img src="photos/Creyon%20bio%20logo.png" alt="Creyon Bio" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">Bioinformatics Data Analyst</div>
+            <div class="work-org">Creyon Bio</div>
+            <div class="work-desc">Improved a LightGBM treatment-tolerability model (PR-AUC +4%) and deployed high-throughput NGS pipelines via Snakemake; built real-time dashboards that accelerated experimental feedback and analysis turnaround.</div>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="work-date">2023</div>
+          <div class="work-logo"><img src="photos/jefferson-logo.jpg" alt="Jefferson Health" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">Computational Biologist</div>
+            <div class="work-org">Jefferson Health</div>
+            <div class="work-desc">Differential gene expression (edgeR) and GSEA to uncover biological pathways; Python visualizations communicating findings clearly to wet-lab collaborators.</div>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="work-date">2022</div>
+          <div class="work-logo"><img src="photos/moderna%20logo.png" alt="Moderna" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">Computational Science Intern</div>
+            <div class="work-org">Moderna</div>
+            <div class="work-desc">eCLIP data ingestion system with automated preprocessing, peak calling, motif extraction, and a user-facing front end for biologists to explore results without writing code.</div>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="work-date">2020–2021</div>
+          <div class="work-logo"><img src="photos/axiom%20healthcare%20strategies%20logo.jpg" alt="Axiom" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">Junior Analyst</div>
+            <div class="work-org">Axiom Healthcare Strategies</div>
+            <div class="work-desc">Competitive intelligence in oncology: clinical trial analysis, conference proceedings, and strategic forecasting.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">03</span>
+          <span class="sec-title">Education</span>
+        </div>
+      </div>
+      <div class="work-list">
+        <div class="work-row">
+          <div class="work-date">2021–2023</div>
+          <div class="work-logo"><img src="photos/Carnegie-Mellon-University-Logo.png" alt="Carnegie Mellon University" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">M.S. Computational Biology</div>
+            <div class="work-org">Carnegie Mellon University, Pittsburgh, PA</div>
+            <div class="work-desc">James R Swartz Entrepreneurial Fellow 2022</div>
+          </div>
+        </div>
+         <div class="work-row">
+          <div class="work-date">2016–2020</div>
+          <div class="work-logo"><img src="photos/ramaiah-logo.jpeg" alt="M.S. Ramaiah Institute of Technology" onerror="this.style.display='none'"></div>
+          <div>
+            <div class="work-role">B.E. Biotechnology</div>
+            <div class="work-org">M.S. Ramaiah Institute of Technology, Bengaluru, India</div>
+            <div class="work-desc">Co-founder, Numera Math &amp; Logic Club</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">04</span>
+          <span class="sec-title">Certifications</span>
+        </div>
+      </div>
+      <div class="now-grid">
+        <div class="now-card">
+          <div class="now-card-label">365 Data Science</div>
+          <div class="now-card-val">AI Product Manager</div>
+        </div>
+        <div class="now-card">
+          <div class="now-card-label">Scrum.org</div>
+          <div class="now-card-val">Professional Scrum Master I</div>
+        </div>
+        <div class="now-card">
+          <div class="now-card-label">UC San Diego</div>
+          <div class="now-card-val">Drug Commercialization</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">05</span>
+          <span class="sec-title">Projects</span>
+        </div>
+        <a href="https://github.com/98ketaki" class="sec-link">GitHub →</a>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProjects('ai',this)">AI</button>
+        <button class="filter-btn" onclick="filterProjects('ml',this)">Machine Learning</button>
+        <button class="filter-btn" onclick="filterProjects('bio',this)">Bioinformatics</button>
+        <button class="filter-btn" onclick="filterProjects('all',this)">All</button>
+      </div>
+      <div class="proj-grid">
+
+        <div class="proj-card" data-cat="ai">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#1C3A2A,#2D5C42)">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+              <circle cx="27" cy="27" r="6" fill="white"/>
+              <circle cx="9" cy="15" r="4" fill="white" opacity="0.7"/>
+              <circle cx="45" cy="15" r="4" fill="white" opacity="0.7"/>
+              <circle cx="9" cy="39" r="4" fill="white" opacity="0.7"/>
+              <circle cx="45" cy="39" r="4" fill="white" opacity="0.7"/>
+              <circle cx="27" cy="5"  r="3" fill="white" opacity="0.4"/>
+              <circle cx="27" cy="49" r="3" fill="white" opacity="0.4"/>
+              <line x1="27" y1="27" x2="9"  y2="15" stroke="white" stroke-width="1.5" opacity="0.5"/>
+              <line x1="27" y1="27" x2="45" y2="15" stroke="white" stroke-width="1.5" opacity="0.5"/>
+              <line x1="27" y1="27" x2="9"  y2="39" stroke="white" stroke-width="1.5" opacity="0.5"/>
+              <line x1="27" y1="27" x2="45" y2="39" stroke="white" stroke-width="1.5" opacity="0.5"/>
+              <line x1="27" y1="27" x2="27" y2="5"  stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <line x1="27" y1="27" x2="27" y2="49" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <line x1="9"  y1="15" x2="45" y2="15" stroke="white" stroke-width="1"   opacity="0.2"/>
+              <line x1="9"  y1="39" x2="45" y2="39" stroke="white" stroke-width="1"   opacity="0.2"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">AI · Knowledge Graph</span>
+            <h3>Bioweave</h3>
+            <p>Interactive knowledge graph connecting genes, proteins, and publications, making fragmented biological context searchable and visible in one place.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/bioweave">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="ai">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#1A2C48,#2A4870)">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+              <rect x="8"  y="11" width="38" height="5" rx="2.5" fill="white" opacity="0.8"/>
+              <rect x="8"  y="22" width="28" height="5" rx="2.5" fill="white" opacity="0.5"/>
+              <rect x="8"  y="33" width="32" height="5" rx="2.5" fill="white" opacity="0.5"/>
+              <circle cx="42" cy="40" r="9"  stroke="white" stroke-width="2.5" fill="none" opacity="0.85"/>
+              <line x1="48" y1="47" x2="53" y2="52" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">Product · Full-stack</span>
+            <h3>Clinical Trial Finder</h3>
+            <p>Full-stack lung cancer trial matching app that makes trial discovery easier to search and understand around patient-specific needs.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/clinical-trial-finder">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="ai">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#2A1E10,#4A3418)">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+              <rect x="6"  y="8"  width="18" height="22" rx="3" fill="white" opacity="0.35"/>
+              <rect x="30" y="8"  width="18" height="22" rx="3" fill="white" opacity="0.35"/>
+              <rect x="6"  y="36" width="18" height="10" rx="3" fill="white" opacity="0.25"/>
+              <rect x="30" y="36" width="18" height="10" rx="3" fill="white" opacity="0.25"/>
+              <path d="M16 19 L27 26 L38 19" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">Data Infrastructure</span>
+            <h3>Bio Data Organizer</h3>
+            <p>Schema-driven tool that automatically structures scattered experimental data into clean, analysis-ready formats.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/Bio-data-aws">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="ml">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#20143A,#3A2560)">
+            <svg width="56" height="52" viewBox="0 0 56 52" fill="none">
+              <polyline points="4,42 16,24 28,32 40,10 52,20" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.88"/>
+              <polyline points="4,48 16,36 28,42 40,22 52,32" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.38"/>
+              <circle cx="40" cy="10" r="4" fill="white" opacity="0.88"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">Machine Learning</span>
+            <h3>Multi-omic Lung Cancer</h3>
+            <p>Lung cancer subtype classification using TCGA data. A PyTorch autoencoder whose multi-omic ensemble outperformed mono-omic baselines.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/multi-omic-lung-cancer">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="ml">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#0E2818,#1A4828)">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+              <circle cx="27" cy="27" r="17" stroke="white" stroke-width="2.5" fill="none" opacity="0.78"/>
+              <circle cx="27" cy="27" r="8"  fill="white" opacity="0.15"/>
+              <circle cx="21" cy="21" r="4"  fill="white" opacity="0.88"/>
+              <circle cx="33" cy="20" r="2.5" fill="white" opacity="0.65"/>
+              <circle cx="31" cy="33" r="3"   fill="white" opacity="0.65"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">Machine Learning</span>
+            <h3>Malaria Detector</h3>
+            <p>ResNet50 transfer-learning classifier distinguishing infected from healthy blood-smear cells to address inconsistent manual screening.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/Deep-Learning/tree/main/Malaria_Detection">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="bio">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#0F1E30,#183A58)">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+              <line x1="4" y1="27" x2="50" y2="27" stroke="white" stroke-width="1.5" opacity="0.22"/>
+              <rect x="14" y="14" width="5" height="26" rx="2.5" fill="white" opacity="0.7"/>
+              <rect x="25" y="9"  width="5" height="36" rx="2.5" fill="white" opacity="0.9"/>
+              <rect x="36" y="17" width="5" height="20" rx="2.5" fill="white" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">Bioinformatics</span>
+            <h3>Variant Calling Pipeline</h3>
+            <p>Reproducible workflow for calling SNPs and indels from raw paired-end reads with filtered variant output for IGV visualization.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/Variant_Calling_using-GATK">View on GitHub →</a>
+          </div>
+        </div>
+
+        <div class="proj-card" data-cat="bio">
+          <div class="proj-banner" style="background:linear-gradient(140deg,#201030,#3A1C52)">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+              <path d="M4 27 Q14 8 24 27 Q34 46 44 27 Q50 16 54 27" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.88"/>
+              <circle cx="24" cy="18" r="5.5" fill="white" opacity="0.85"/>
+              <line x1="24" y1="12" x2="24" y2="5" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+              <circle cx="24" cy="4" r="2" fill="white" opacity="0.32"/>
+            </svg>
+          </div>
+          <div class="proj-body">
+            <span class="proj-chip">Bioinformatics</span>
+            <h3>RBP Peak Finder</h3>
+            <p>CNN identifying where RNA-binding proteins interact with viral RNA using eCLIP data, distinguishing binding peaks from background.</p>
+            <a class="proj-link" href="https://github.com/98ketaki/RBP_Peak_Finder">View on GitHub →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">06</span>
+          <span class="sec-title">Writing</span>
+        </div>
+        <a href="https://www.ketaki-ghatole.com/blog" class="sec-link">Read all →</a>
+      </div>
+      <div class="writing-list">
+        <a href="https://www.ketaki-ghatole.com/blog" class="writing-row">
+          <div>
+            <div class="writing-name">Biology × AI</div>
+            <div class="writing-sub">Practical workflows and tools lab teams can actually use</div>
+          </div>
+          <span class="writing-arrow">→</span>
+        </a>
+        <a href="https://www.ketaki-ghatole.com/blog" class="writing-row">
+          <div>
+            <div class="writing-name">Thinking in Products</div>
+            <div class="writing-sub">Building in technical and scientific markets</div>
+          </div>
+          <span class="writing-arrow">→</span>
+        </a>
+        <a href="https://www.ketaki-ghatole.com/blog" class="writing-row">
+          <div>
+            <div class="writing-name">Back to Basics</div>
+            <div class="writing-sub">Concepts that are easy to name but hard to explain well</div>
+          </div>
+          <span class="writing-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- BOOKS -->
+    <section id="books" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">07</span>
+          <span class="sec-title">Books</span>
+        </div>
+      </div>
+      <div class="books-section">
+        <div>
+          <div class="books-group-label">Reading</div>
+          <div class="books-shelf">
+            <div class="book-cover">
+              <img src="photos/startup-owner.png" alt="The Startup Owner's Manual">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="books-group-label">Completed</div>
+          <div class="books-shelf">
+            <div class="book-cover">
+              <img src="photos/zero.png" alt="Zero to One">
+            </div>
+            <div class="book-cover">
+              <img src="photos/inspired.png" alt="Inspired">
+            </div>
+            <div class="book-cover">
+              <img src="photos/lean.png" alt="The Lean Startup">
+            </div>
+            <div class="book-cover">
+              <img src="photos/startup-checklist.png" alt="The Startup Checklist">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFE -->
+    <section id="life" class="sec">
+      <div class="sec-head">
+        <div class="sec-head-left">
+          <span class="sec-num">08</span>
+          <span class="sec-title">Life</span>
+        </div>
+      </div>
+      <div class="life-mini-grid">
+        <div class="life-mini"><b>Coffee</b><span> Andytown beans and latte art.</span></div>
+        <div class="life-mini"><b>Running</b><span>Training towards 10K.</span></div>
+        <div class="life-mini"><b>Pull up</b><span>Working towards the first one.</span></div>
+        <div class="life-mini"><b>Graphic design</b><span>On the side</span></div>
+      </div>
+      <div class="life-photo-grid">
+        <div class="life-card">
+          <div class="life-card-ph"><img src="photos/latte-art.jpg" alt="Coffee" style="object-position:center 28%"></div>
+          <div class="life-card-body">
+            <div class="life-card-title">First rosetta latte art</div>
+          </div>
+        </div>
+        <div class="life-card">
+          <div class="life-card-ph"><img src="photos/hiking.JPG" alt="Hiking @ Zion"></div>
+          <div class="life-card-body">
+            <div class="life-card-title">Hiking at Zion</div>
+          </div>
+        </div>
+        <div class="life-card">
+          <div class="life-card-ph"><img src="photos/yoga.png" alt="Yoga"></div>
+          <div class="life-card-body">
+            <div class="life-card-title">Yoga at San Diego beach</div>
+          </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sec cta-sec" id="contact">
+      <div class="cta-eyebrow">Let's talk</div>
+      <h2 class="cta-h2">If you're building something or<br>working in <em>Biotech or AI</em></h2>
+      <p class="cta-desc">I'd love to connect.</p>
+      <div class="cta-actions">
+        <a href="https://www.linkedin.com/in/ketaki-g/" class="btn-parchment">Connect on LinkedIn →</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <span>© 2026 Ketaki Ghatole · San Francisco</span>
+  <div class="footer-links">
+    <a href="https://github.com/98ketaki">GitHub</a>
+    <a href="https://www.linkedin.com/in/ketaki-g/">LinkedIn</a>
   </div>
-</section>
+</footer>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <span class="eyebrow">Experience</span>
-    <div class="timeline">
-      <div class="exp">
-        <div class="when">Nov 2025 – June 2026</div>
-        <div>
-          <div class="role">Bioinformatics Product Manager </div>
-          <div class="org">Creyon Bio</div>
-          <p>Launched an AI-driven target discovery tool that cut scientific evaluation time by ~3 hours per target. Drove company-wide responsible GenAI adoption by identifying high-value use cases and establishing best practices.</p>
-        </div>
-      </div>
-      <div class="exp">
-        <div class="when">Aug 2023 – Oct 2025</div>
-        <div>
-          <div class="role">Bioinformatics Data Analyst</div>
-          <div class="org">Creyon Bio</div>
-          <p>Built and maintained scalable Bioinformatic pipelines for large-scale genomic data analysis. Delivered end-to-end automated assay workflows reducing analysis time by 50% per dataset.</p>
-        </div>
-      </div>
-      <div class="exp">
-        <div class="when">June 2023 - Aug 2023</div>
-        <div>
-          <div class="role">Computational Biologist</div>
-          <div class="org">Jefferson Health</div>
-          <p>Performed differential gene expression and GSEA to uncover biological pathways for genes of interest and built visualization dashboards to communicate computational findings to wet-lab collaborators.</p>
-        </div>
-      </div>
-      <div class="exp">
-        <div class="when">June 2022 - Aug 2022</div>
-        <div>
-          <div class="role">Computational Science Intern</div>
-          <div class="org">Moderna</div>
-          <p>Implemented an eCLIP data ingestion and analysis system with automated preprocessing, peak calling, and motif extraction with a user-facing front end to explore RNA binding proteins.</p>
-        </div>
-      </div>
-      <div class="exp">
-        <div class="when">Jan 2022 - May 2022</div>
-        <div>
-          <div class="role">Graduate Research Assistant · Schwartz Lab &amp; Teaching Assistant</div>
-          <div class="org">Carnegie Mellon University</div>
-          <p>Research in the Schwartz Lab on computational biology problems; teaching assistant for graduate-level computational biology coursework.</p>
-        </div>
-      </div>
-      <div class="exp">
-        <div class="when">Oct 2020 – Mar 2021</div>
-        <div>
-          <div class="role">Junior Analyst</div>
-          <div class="org">Axiom Healthcare Strategies</div>
-          <p> Analyzed clinical trial results, press releases, and conference proceedings to forecast competitive trends and strategic opportunities in the Oncology sector</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="work-head">
-      <div>
-        <span class="eyebrow">Projects</span>
-      </div>
-      <a href="https://github.com/98ketaki" class="btn btn-ghost">All projects on GitHub →</a>
-    </div>
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterProjects('ai',this)">AI</button>
-      <button class="filter-btn" onclick="filterProjects('ml',this)">Machine Learning</button>
-      <button class="filter-btn" onclick="filterProjects('bio',this)">Bioinformatics</button>
-      <button class="filter-btn" onclick="filterProjects('all',this)">All</button>
-    </div>
-    <div class="proj-grid">
-
-      <div class="proj" data-cat="ai">
-        <span class="chip">Product · Full-stack</span>
-        <h3>Clinical Trial Finder</h3>
-        <div class="row">Clinical trial search is difficult to navigate when patients need options relevant to a specific disease context. I built a full-stack lung cancer trial matching app with backend services, a frontend interface, and Supabase to make trial discovery easier to search, filter, and understand around patient-specific needs.</div>
-        <a class="link" href="https://github.com/98ketaki/clinical-trial-finder">View code →</a>
-      </div>
-
-      <div class="proj" data-cat="ai">
-        <span class="chip">AI · Knowledge Graph</span>
-        <h3>Bioweave</h3>
-        <div class="row">Biological relationships across genes, proteins, and publications are often scattered across separate databases. Bioweave is an interactive knowledge graph connecting these fragmented resources to make biological context easier to search and visualize.</div>
-        <a class="link" href="https://github.com/98ketaki/bioweave">View code →</a>
-      </div>
-
-      <div class="proj" data-cat="ai">
-        <span class="chip">Data Infrastructure</span>
-        <h3>Bio Data Organizer</h3>
-        <div class="row">Biological datasets often start as scattered files and semi-structured outputs, making analysis hard to reproduce. This is a prototype workflow using schema-driven organization and AI to automatically structure experimental data into cleaner analysis-ready formats.</div>
-        <a class="link" href="https://github.com/98ketaki/Bio-data-aws">View code →</a>
-      </div>
-
-      <div class="proj" data-cat="ml">
-        <span class="chip">Machine Learning</span>
-        <h3>Multi-omic Lung Cancer Analysis</h3>
-        <div class="row">A multi-omic workflow for lung cancer subtype classification using TCGA gene expression, CNV, and clinical data. I built a PyTorch autoencoder for unsupervised feature selection and the multi-omic ensemble outperformed mono-omic models.</div>
-        <a class="link" href="https://github.com/98ketaki/multi-omic-lung-cancer">View code →</a>
-      </div>
-
-      <div class="proj" data-cat="ml">
-        <span class="chip">Machine Learning</span>
-        <h3>Malaria Detector</h3>
-        <div class="row">Manual blood-smear screening can be slow and inconsistent, especially in low-resource settings. I built a ResNet50 transfer-learning classifier in PyTorch to distinguish infected from healthy cells.</div>
-        <a class="link" href="https://github.com/98ketaki/Deep-Learning/tree/main/Malaria_Detection">View code →</a>
-      </div>
-
-      <div class="proj" data-cat="bio">
-        <span class="chip">Bioinformatics</span>
-        <h3>Variant Calling Pipeline</h3>
-        <div class="row">A reproducible workflow for calling SNPs and indels from raw paired-end reads. The pipeline outputs filtered variant tables for downstream analysis and IGV visualization.</div>
-        <a class="link" href="https://github.com/98ketaki/Variant_Calling_using-GATK">View code →</a>
-      </div>
-
-      <div class="proj" data-cat="bio">
-        <span class="chip">Bioinformatics</span>
-        <h3>RBP Peak Finder</h3>
-        <div class="row">A computational workflow for identifying where host RNA-binding proteins may interact with viral RNA. Built with eCLIP data, the pipeline first identifies mapped-read peaks, then uses a CNN to distinguish likely binding peaks from background sequences and highlight potential binding regions.</div>
-        <a class="link" href="https://github.com/98ketaki/RBP_Peak_Finder">View code →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
 <script>
   function filterProjects(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    document.querySelectorAll('.proj-grid .proj').forEach(p => {
+    document.querySelectorAll('.proj-card').forEach(p => {
       p.classList.toggle('hidden', cat !== 'all' && p.dataset.cat !== cat);
     });
   }
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     filterProjects('ai');
     document.querySelector('.filter-btn').classList.add('active');
+    const sections = ['about','thesis','work','education','certifications','projects','writing','books','life','contact'];
+    const links = document.querySelectorAll('.sidenav a[href^="#"]');
+    const els = sections.map(id => document.getElementById(id)).filter(Boolean);
+    const LINE = 150; // px below the top of the viewport
+    function spy() {
+      let currentId = els.length ? els[0].id : null;
+      for (const el of els) {
+        if (el.getBoundingClientRect().top - LINE <= 0) currentId = el.id;
+      }
+      // at the very bottom, force the last section active
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2 && els.length) {
+        currentId = els[els.length - 1].id;
+      }
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + currentId));
+    }
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('resize', spy);
+    spy();
   });
 </script>
-
-<!-- WRITING -->
-<section id="writing">
-  <div class="wrap">
-    <div class="section-intro">
-      <span class="eyebrow">Writing</span>
-    </div>
-    <div class="write-grid">
-      <a class="pillar" href="https://www.ketaki-ghatole.com/blog">
-        <h3>What's New: Biology × AI</h3>
-        <p>AI is moving quickly with more buzzwords and less practical entry points. I write about simple workflows or tools that lab teams can actually try.</p>
-      </a>
-      <a class="pillar" href="https://www.ketaki-ghatole.com/blog">
-        <h3>Thinking in Products</h3>
-        <p>A running notebook on becoming a better builder in technical + scientific markets from what I'm learning, and building.</p>
-      </a>
-      <a class="pillar" href="https://www.ketaki-ghatole.com/blog">
-        <h3>Back to Basics</h3>
-        <p>Simple and clear explainers for biology, AI, and software concepts that are easy to name but not easy to explain.</p>
-      </a>
-    </div>
-    <div class="write-foot">
-      <a href="https://www.ketaki-ghatole.com/blog" class="btn btn-ghost">Check my work here →</a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <span class="eyebrow">Let's build something</span>
-    <a>
-      <h2>Working on AI × biology?<br>Let's talk.</h2>
-    </a>
-    <div class="hero-cta">
-      <a href="mailto:98ketaki@gmail.com" class="btn">Email me →</a>
-      <a href="https://www.linkedin.com/in/ketaki-g/" class="btn btn-ghost">Connect on LinkedIn</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">© 2026 Ketaki Ghatole</div>
-</footer>
-
 </body>
 </html>
